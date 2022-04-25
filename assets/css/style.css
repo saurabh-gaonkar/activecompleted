@@ -120,11 +120,22 @@ li {
   main styling starts here
 =================================*/
 
+main .wrapper {
+  padding-top: 30px;
+  text-align: center;
+}
 
+h2 {
+  font-weight: bold;
+}
 
-
-
-
+.searchbox,.buttons {
+  margin-top: 25px;
+}
+.searchbar {
+  width: 26%;
+  height: 25px;
+}
 
 
 /*=================================
