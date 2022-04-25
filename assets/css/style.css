@@ -129,14 +129,19 @@ h2 {
   font-weight: bold;
 }
 
-.searchbox,.buttons {
-  margin-top: 25px;
-}
-
 .searchbox {
+  margin-top: 25px;
   display: flex;
   justify-content: center;
 }
+
+.buttons {
+  width: 28%;
+  margin: 25px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
 .searchbar {
   width: 23%;
   height: 25px;
@@ -160,7 +165,14 @@ h2 {
 }
 
 .searchlist {
+  width: 25%;
+  margin: auto;
   display: none;
+}
+
+.searchlist li {
+  padding: 5px 0;
+  border: 1px solid #000;
 }
 
 .active {
