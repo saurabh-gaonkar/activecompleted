@@ -197,6 +197,10 @@ h2 {
   display: block;
 }
 
+input[type="checkbox"][readonly] {
+  pointer-events: none;
+}
+
 /*=================================
   main styling ends here
 =================================*/
