@@ -39,6 +39,24 @@ const checkboxfun = ()=>{
     })
 }
 
+const checkboxfilter = ()=>{
+    let checkboxes = document.querySelectorAll(".checkedbox");
+    searchlist.classList.add("active");
+    checkall.classList.add("show");
+    checkboxes.forEach((i,index)=>{
+        i.addEventListener("click",()=>{
+          let searchitems = JSON.parse(localStorage.getItem("searchitems"));
+          if(i.checked === true) {
+              searchitems[i.dataset.index].checked=true;
+          }else {
+              searchitems[i.dataset.index].checked=false;
+          }
+  
+          localStorage.setItem("searchitems",JSON.stringify(searchitems));
+        })
+    })
+}
+
 const showlist = () => {
     createlist();
     checkboxfun();
@@ -77,12 +95,12 @@ active.addEventListener("click",()=>{
     let getsearchitems = JSON.parse(localStorage.getItem("searchitems"));
 getsearchitems.forEach((i,index)=>{
     if(i.checked === false){
-    searchlist.innerHTML += `<li><input type="checkbox" readonly class="checkedbox" data-index="${index}">${i.name}</li>`
+    searchlist.innerHTML += `<li><input type="checkbox" class="checkedbox" data-index="${index}">${i.name}</li>`
     }
     localStorage.setItem("searchitems",JSON.stringify(getsearchitems));
 })
 
-checkboxfun();
+checkboxfilter();
 })
 
 completed.addEventListener("click",()=>{
@@ -90,12 +108,11 @@ completed.addEventListener("click",()=>{
     let getsearchitems = JSON.parse(localStorage.getItem("searchitems"));
 getsearchitems.forEach((i,index)=>{
     if(i.checked === true){
-    searchlist.innerHTML += `<li><input type="checkbox" checked="true" readonly class="checkedbox" data-index="${index}">${i.name}</li>`
+    searchlist.innerHTML += `<li><input type="checkbox" checked="true" class="checkedbox" data-index="${index}">${i.name}</li>`
     }
     localStorage.setItem("searchitems",JSON.stringify(getsearchitems));
 })
-
-checkboxfun();
+checkboxfilter();
 })
 
 clearcompleted.addEventListener("click",()=>{
