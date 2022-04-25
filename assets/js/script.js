@@ -11,11 +11,11 @@ clearcompleted = document.querySelector(".clearcompleted");
 const createlist = () =>{
     searchlist.innerHTML = "";
     let getsearchitems = JSON.parse(localStorage.getItem("searchitems"));
-getsearchitems.forEach(i=>{
+getsearchitems.forEach((i,index)=>{
     if(i.checked === true){
-    searchlist.innerHTML += `<li><input type="checkbox" checked="true" class="checkedbox">${i.name}</li>`
+    searchlist.innerHTML += `<li><input type="checkbox" checked="true" class="checkedbox">${i.name}<span class="cross" data-id="${index}"></span></li>`
     }else {
-        searchlist.innerHTML += `<li><input type="checkbox" class="checkedbox">${i.name}</li>`
+        searchlist.innerHTML += `<li><input type="checkbox" class="checkedbox">${i.name}<span class="cross" data-id="${index}"</li>`
     }
 })
 
@@ -95,7 +95,7 @@ active.addEventListener("click",()=>{
     let getsearchitems = JSON.parse(localStorage.getItem("searchitems"));
 getsearchitems.forEach((i,index)=>{
     if(i.checked === false){
-    searchlist.innerHTML += `<li><input type="checkbox" class="checkedbox" data-index="${index}">${i.name}</li>`
+    searchlist.innerHTML += `<li><input type="checkbox" class="checkedbox" data-index="${index}">${i.name}<span class="cross" data-id="${index}"</li>`
     }
     localStorage.setItem("searchitems",JSON.stringify(getsearchitems));
 })
@@ -108,7 +108,7 @@ completed.addEventListener("click",()=>{
     let getsearchitems = JSON.parse(localStorage.getItem("searchitems"));
 getsearchitems.forEach((i,index)=>{
     if(i.checked === true){
-    searchlist.innerHTML += `<li><input type="checkbox" checked="true" class="checkedbox" data-index="${index}">${i.name}</li>`
+    searchlist.innerHTML += `<li><input type="checkbox" checked="true" class="checkedbox" data-index="${index}">${i.name}<span class="cross" data-id="${index}"</li>`
     }
     localStorage.setItem("searchitems",JSON.stringify(getsearchitems));
 })
@@ -135,9 +135,16 @@ checkboxfun();
 checkall.addEventListener("click",()=>{
     searchlist.innerHTML = "";
     let getsearchitems = JSON.parse(localStorage.getItem("searchitems"));
-    getsearchitems.forEach(i=>{
-        i.checked = true;
-    });
+    if(checkall.checked === true){
+        getsearchitems.forEach(i=>{
+            i.checked = true;
+        });
+    }else {
+        getsearchitems.forEach(i=>{
+            i.checked = false;
+        });
+    }
+   
     localStorage.setItem("searchitems",JSON.stringify(getsearchitems));
     getsearchitems.forEach(i=>{
         if(i.checked === true){
