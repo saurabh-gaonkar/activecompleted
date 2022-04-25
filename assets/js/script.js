@@ -22,12 +22,11 @@ getsearchitems.forEach(i=>{
 }
 
 
-
 const showlist = () => {
     createlist();
     let checkboxes = document.querySelectorAll(".checkedbox");
-  searchlist.classList.toggle("active");
-  checkall.style.display = "block";
+  searchlist.classList.add("active");
+  checkall.classList.add("show");
   checkboxes.forEach((i,index)=>{
       i.addEventListener("click",()=>{
         let searchitems = JSON.parse(localStorage.getItem("searchitems"));
@@ -48,7 +47,7 @@ serchbar.addEventListener("keyup",(e)=>{
         newitem = serchbar.value;
         falsevalue = false;
         searchitems.forEach(i=>{
-            if(i === newitem || newitem === "") {
+            if(i.name === newitem || newitem === "") {
                 falsevalue = true;
             }
         })
@@ -95,9 +94,25 @@ getsearchitems.forEach((i,index)=>{
         getsearchitems.splice(index,1);
     }
 })
+localStorage.setItem("searchitems",JSON.stringify(getsearchitems));
 searchlist.classList.add("active");
 })
 
+checkall.addEventListener("click",()=>{
+    searchlist.innerHTML = "";
+    let getsearchitems = JSON.parse(localStorage.getItem("searchitems"));
+    getsearchitems.forEach(i=>{
+        i.checked = true;
+    });
+    localStorage.setItem("searchitems",JSON.stringify(getsearchitems));
+    getsearchitems.forEach(i=>{
+        if(i.checked === true){
+        searchlist.innerHTML += `<li><input type="checkbox" checked="true" class="checkedbox">${i.name}</li>`
+        }else {
+            searchlist.innerHTML += `<li><input type="checkbox" class="checkedbox">${i.name}</li>`
+        }
+    })
+})
 
 
 
