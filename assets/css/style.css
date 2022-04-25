@@ -188,6 +188,13 @@ input[type="checkbox"][readonly] {
   pointer-events: none;
 }
 
+.cross::after {
+  content: "\f00d";
+  float: right;
+  font-family: "fontAwesome";
+  color: #ff0000;
+}
+
 /*=================================
   main styling ends here
 =================================*/
