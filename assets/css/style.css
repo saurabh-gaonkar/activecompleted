@@ -132,9 +132,31 @@ h2 {
 .searchbox,.buttons {
   margin-top: 25px;
 }
+
+.searchbox {
+  display: flex;
+  justify-content: center;
+}
 .searchbar {
-  width: 26%;
+  width: 23%;
   height: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.dropper {
+  display: inline-block;
+  flex-basis: 3%;
+  background-color:#EFEFEF;
+  text-indent: -9999px;
+}
+
+.dropper::before {
+  content: "\f0dd";
+  font-family: "fontAwesome";
+  float: right;
+  transform: translateX(-50%);
+  text-indent: 0;
 }
 
 
