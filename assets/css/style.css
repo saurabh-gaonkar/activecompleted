@@ -180,19 +180,6 @@ h2 {
   flex-direction: column;
 }
 
-.check-all {
-  display: none;
-  text-indent: -9999px;
-}
-
-.check-all::before {
-    content: "\f00c";
-    font-family: "fontAwesome";
-    float: right;
-    transform: translateX(-50%);
-    text-indent: 0;
-}
-
 .show {
   display: block;
 }
