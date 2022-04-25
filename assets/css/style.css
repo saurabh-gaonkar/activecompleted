@@ -193,6 +193,10 @@ h2 {
     text-indent: 0;
 }
 
+.show {
+  display: block;
+}
+
 /*=================================
   main styling ends here
 =================================*/
