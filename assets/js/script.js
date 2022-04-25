@@ -1,6 +1,7 @@
 let serchbar = document.querySelector(".searchbar"),
 dropper = document.querySelector(".dropper"),
 searchlist = document.querySelector(".searchlist"),
+checkall = document.querySelector(".check-all"),
 all = document.querySelector(".all"),
 active = document.querySelector(".active"),
 completed = document.querySelector(".completed"),
@@ -26,6 +27,7 @@ const showlist = () => {
     createlist();
     let checkboxes = document.querySelectorAll(".checkedbox");
   searchlist.classList.toggle("active");
+  checkall.style.display = "block";
   checkboxes.forEach((i,index)=>{
       i.addEventListener("click",()=>{
         let searchitems = JSON.parse(localStorage.getItem("searchitems"));
