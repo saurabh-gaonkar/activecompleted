@@ -15,7 +15,7 @@ cross.forEach(i=>{
         let getsearchitems = JSON.parse(localStorage.getItem("searchitems"));
         getsearchitems.splice(i.dataset.id,1);
         localStorage.setItem("searchitems",JSON.stringify(getsearchitems));
-        // alert("removed");
+        createlist();
     })
 })
 
@@ -87,6 +87,7 @@ serchbar.addEventListener("keyup",(e)=>{
 
         let searchitems = JSON.parse(localStorage.getItem("searchitems")),
         newitem = serchbar.value;
+        serchbar.value = "";
         falsevalue = false;
         searchitems.forEach(i=>{
             if(i.name === newitem || newitem === "") {
