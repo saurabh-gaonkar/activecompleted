@@ -15,7 +15,7 @@ cross.forEach(i=>{
         let getsearchitems = JSON.parse(localStorage.getItem("searchitems"));
         getsearchitems.splice(i.dataset.id,1);
         localStorage.setItem("searchitems",JSON.stringify(getsearchitems));
-        alert("removed");
+        // alert("removed");
     })
 })
 
